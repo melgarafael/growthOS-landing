@@ -1,0 +1,251 @@
+/* ═══════════════════════════════════════════
+   showcase.css — Stacking cards scroll gallery
+   Each card shows a live mini-scene, not a placeholder.
+   Cards stack on top of each other as user scrolls.
+   ═══════════════════════════════════════════ */
+
+.showcase { position: relative; }
+
+.showcase__header {
+  padding: var(--gap-section) 0 var(--gap-block);
+  max-width: var(--page-w); margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 48px);
+}
+
+.showcase__cards {
+  position: relative;
+}
+
+.showcase__card {
+  position: sticky; top: 10vh;
+  height: 80vh; max-height: 700px;
+  max-width: 960px; margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 48px);
+  display: flex; flex-direction: column;
+  margin-bottom: 40vh;
+}
+
+.showcase__card:last-child { margin-bottom: 20vh; }
+
+/* Each card offsets slightly to show stacking */
+.showcase__card:nth-child(2) { top: 12vh; }
+.showcase__card:nth-child(3) { top: 14vh; }
+.showcase__card:nth-child(4) { top: 16vh; }
+
+.showcase__frame {
+  flex: 1; display: flex; flex-direction: column;
+  border: 1px solid var(--line);
+  background: var(--bg-1);
+  overflow: hidden;
+}
+
+.showcase__frame-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-2);
+  flex-shrink: 0;
+}
+
+.showcase__frame-dots { display: flex; gap: 6px; }
+.showcase__frame-dot { width: 8px; height: 8px; background: var(--bg-3); }
+
+.showcase__frame-url {
+  flex: 1; text-align: center;
+  font-family: var(--font-mono); font-size: 0.5625rem;
+  color: var(--ink-4); letter-spacing: 0.02em;
+}
+
+.showcase__frame-badge {
+  font-family: var(--font-mono); font-size: 0.5625rem;
+  color: var(--vi); letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.showcase__frame-body {
+  flex: 1; position: relative; overflow: hidden;
+  background: var(--bg-code);
+}
+
+.showcase__caption {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0 0;
+  font-family: var(--font-mono); font-size: var(--fs-xs);
+  color: var(--ink-3); flex-shrink: 0;
+}
+.showcase__caption-skill { color: var(--vi); }
+
+/* ── Progress indicator (right side) ── */
+.showcase__progress {
+  position: fixed; right: clamp(16px, 3vw, 40px); top: 50%;
+  transform: translateY(-50%); z-index: 50;
+  display: flex; flex-direction: column; gap: 6px;
+  opacity: 0; transition: opacity var(--dur-med) var(--ease);
+}
+.showcase__progress.is-visible { opacity: 1; }
+
+.showcase__pip {
+  width: 2px; height: 20px; background: var(--ink-4);
+  transition: all var(--dur-med) var(--ease);
+}
+.showcase__pip.is-active { background: var(--vi); height: 32px; }
+
+/* ═══ MINI-SCENES (inside frames) ═══ */
+
+/* Scene: Landing Page */
+.mini-lp {
+  width: 100%; height: 100%; padding: 2rem;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center;
+  position: relative; overflow: hidden;
+}
+.mini-lp::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 40% 40%, rgba(167,139,250,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.mini-lp__ey {
+  font-family: var(--font-mono); font-size: 0.5rem;
+  text-transform: uppercase; letter-spacing: 0.15em;
+  color: var(--vi); opacity: 0.7;
+}
+.mini-lp__h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.25rem, 3vw, 2.25rem);
+  line-height: 1.05; letter-spacing: -0.04em;
+  color: var(--ink); margin-top: 0.5rem;
+  position: relative; z-index: 1;
+}
+.mini-lp__h1 span { color: var(--vi); }
+.mini-lp__sub {
+  font-size: 0.625rem; color: var(--ink-2);
+  margin-top: 0.5rem; max-width: 30ch;
+  position: relative; z-index: 1;
+}
+.mini-lp__cta {
+  margin-top: 0.75rem; display: flex; gap: 0.375rem;
+  position: relative; z-index: 1;
+}
+.mini-lp__btn {
+  font-family: var(--font-body); font-size: 0.5rem; font-weight: 500;
+  padding: 4px 12px;
+}
+.mini-lp__btn--primary { background: var(--vi); color: var(--bg); }
+.mini-lp__btn--ghost { border: 1px solid var(--line); color: var(--ink-2); }
+.mini-lp__metrics {
+  margin-top: 1rem; display: flex; gap: 1.5rem;
+  position: relative; z-index: 1;
+}
+.mini-lp__metric {
+  text-align: center;
+}
+.mini-lp__metric-val {
+  font-family: var(--font-display); font-size: 0.875rem;
+  font-weight: 700; color: var(--ink);
+}
+.mini-lp__metric-label {
+  font-family: var(--font-mono); font-size: 0.4375rem;
+  color: var(--ink-4); text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+/* Scene: Carousel */
+.mini-carousel {
+  width: 100%; height: 100%; display: flex;
+  align-items: center; justify-content: center; gap: 1rem;
+  padding: 1.5rem;
+}
+.mini-slide {
+  flex: 0 0 auto; width: 140px; height: 190px;
+  border: 1px solid var(--line); background: var(--bg-1);
+  display: flex; flex-direction: column;
+  padding: 1rem; justify-content: space-between;
+  transition: transform var(--dur-med) var(--ease-out), opacity var(--dur-med);
+}
+.mini-slide:nth-child(1) { transform: rotate(-3deg) translateY(8px); }
+.mini-slide:nth-child(2) { transform: scale(1.05); z-index: 2; border-color: var(--vi-line); }
+.mini-slide:nth-child(3) { transform: rotate(3deg) translateY(8px); }
+.mini-slide:nth-child(4) { transform: rotate(5deg) translateY(16px); opacity: 0.5; }
+.mini-slide__num {
+  font-family: var(--font-display); font-size: 1.5rem;
+  font-weight: 700; color: var(--vi);
+}
+.mini-slide__title {
+  font-family: var(--font-display); font-size: 0.5625rem;
+  font-weight: 600; color: var(--ink); line-height: 1.3;
+}
+.mini-slide__body {
+  font-size: 0.4375rem; color: var(--ink-3); line-height: 1.5;
+}
+.mini-slide__footer {
+  font-family: var(--font-mono); font-size: 0.375rem;
+  color: var(--ink-4); text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+/* Scene: Video */
+.mini-video {
+  width: 100%; height: 100%; display: flex;
+  flex-direction: column; position: relative;
+}
+.mini-video__timeline {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 0.75rem 1rem; background: linear-gradient(transparent, rgba(8,8,10,0.9));
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.mini-video__bar {
+  flex: 1; height: 3px; background: var(--bg-3);
+}
+.mini-video__progress { height: 100%; width: 45%; background: var(--vi); }
+.mini-video__time {
+  font-family: var(--font-mono); font-size: 0.5rem; color: var(--ink-3);
+}
+.mini-video__canvas {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.mini-video__play {
+  width: 48px; height: 48px;
+  border: 2px solid var(--vi-line);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--vi); font-size: 1.25rem;
+}
+.mini-video__label {
+  position: absolute; top: 1rem; left: 1rem;
+  font-family: var(--font-mono); font-size: 0.5rem;
+  color: var(--vi); text-transform: uppercase; letter-spacing: 0.1em;
+}
+.mini-video__comp {
+  position: absolute; top: 1rem; right: 1rem;
+  font-family: var(--font-mono); font-size: 0.5rem;
+  color: var(--ink-4);
+}
+.mini-video__storyboard {
+  position: absolute; bottom: 3rem; left: 1rem; right: 1rem;
+  display: flex; gap: 4px;
+}
+.mini-video__thumb {
+  flex: 1; height: 28px; background: var(--bg-2);
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 0.375rem; color: var(--ink-4);
+}
+.mini-video__thumb.is-current { border-color: var(--vi); }
+
+/* Scene: Strategy */
+.mini-strategy {
+  width: 100%; height: 100%;
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-mono); font-size: 0.625rem;
+  line-height: 1.8; color: var(--ink-2);
+  overflow: hidden;
+}
+.mini-strategy .h { color: var(--vi); font-weight: 500; }
+.mini-strategy .d { color: var(--ink-4); font-style: italic; }
+.mini-strategy .ok { color: var(--ok); }
+.mini-strategy .b { color: var(--ink); font-weight: 500; }
+.mini-strategy .sep { color: var(--ink-4); }
+
+@media (max-width: 640px) {
+  .showcase__card { height: 70vh; max-height: 500px; top: 5vh !important; }
+  .mini-carousel { gap: 0.5rem; padding: 0.75rem; }
+  .mini-slide { width: 100px; height: 140px; padding: 0.5rem; }
+}

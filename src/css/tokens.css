@@ -1,0 +1,75 @@
+/* ═══════════════════════════════════════════
+   tokens.css — growthOS Design Tokens
+   Single source of truth. No values hardcoded elsewhere.
+   ═══════════════════════════════════════════ */
+
+:root {
+  /* ── Backgrounds (elevation system) ── */
+  --bg:         #08080A;
+  --bg-1:       #0E0E12;
+  --bg-2:       #141418;
+  --bg-3:       #1A1A20;
+  --bg-code:    #0B0B0F;
+
+  /* ── Ink (text hierarchy) ── */
+  --ink:        #E8E8EC;
+  --ink-2:      #8E8E9A;
+  --ink-3:      #5A5A68;
+  --ink-4:      #3A3A46;
+
+  /* ── Accent (surgical violet — only chromatic color) ── */
+  --vi:         #A78BFA;
+  --vi-hover:   #C4B5FD;
+  --vi-active:  #8B5CF6;
+  --vi-dim:     rgba(167, 139, 250, 0.08);
+  --vi-line:    rgba(167, 139, 250, 0.25);
+  --vi-glow:    rgba(167, 139, 250, 0.15);
+
+  /* ── Semantic (only in specific contexts) ── */
+  --ok:         #6EE7B7;
+  --err:        #FCA5A5;
+  --warn:       #FCD34D;
+
+  /* ── Borders ── */
+  --line:       rgba(255, 255, 255, 0.06);
+  --line-h:     rgba(255, 255, 255, 0.12);
+
+  /* ── Typography ── */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  --fs-mega:  clamp(4rem, 7vw + 1rem, 8rem);
+  --fs-hero:  clamp(2.75rem, 5vw + 0.5rem, 5rem);
+  --fs-h2:    clamp(1.75rem, 3vw + 0.25rem, 3rem);
+  --fs-h3:    clamp(1.25rem, 1.8vw + 0.25rem, 1.625rem);
+  --fs-body:  clamp(0.9375rem, 1vw + 0.1rem, 1.0625rem);
+  --fs-sm:    0.8125rem;
+  --fs-xs:    0.6875rem;
+
+  --lh-heading: 1.05;
+  --lh-body:    1.65;
+
+  /* ── Spacing ── */
+  --gap-section: clamp(6rem, 10vw, 10rem);
+  --gap-block:   clamp(2.5rem, 4vw, 4rem);
+  --gap-group:   clamp(1rem, 2vw, 1.5rem);
+
+  --page-w:    1120px;
+  --narrow:    680px;
+  --measure:   58ch;
+
+  /* ── Motion ── */
+  --ease:      cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:  120ms;
+  --dur-med:   300ms;
+  --dur-slow:  600ms;
+
+  /* ── Syntax (code blocks only) ── */
+  --syn-kw:    #C4B5FD;
+  --syn-str:   #6EE7B7;
+  --syn-fn:    #A78BFA;
+  --syn-cm:    #3A3A46;
+  --syn-var:   #FCD34D;
+}

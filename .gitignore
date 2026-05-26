@@ -1,0 +1,5 @@
+.DS_Store
+.firecrawl/
+.playwright-mcp/
+*.png
+node_modules/

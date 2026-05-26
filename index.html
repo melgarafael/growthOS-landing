@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>growthOS — Your AI marketing team lives in the terminal</title>
+<meta name="description" content="Open-source plugin that turns Claude Code into an autonomous marketing engine. 9 agents, 20+ skills, one command. Free forever.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/css/tokens.css">
+<link rel="stylesheet" href="src/css/base.css">
+<link rel="stylesheet" href="src/css/components.css">
+<link rel="stylesheet" href="src/css/scenes.css">
+<link rel="stylesheet" href="src/css/showcase.css">
+</head>
+<body>
+
+<a href="#main" class="sr-only">Skip to content</a>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav" aria-label="Main">
+  <div class="nav__inner">
+    <span class="nav__logo">growthOS</span>
+    <!-- lang-switcher injected here by i18n.js -->
+    <button class="nav__cta" data-i18n="nav_cta" onclick="document.getElementById('final').scrollIntoView({behavior:'smooth'})">Clone repository</button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ═══ SCENE 01 — HERO ═══ -->
+<section class="scene-hero" aria-label="Hero">
+  <div class="scene-hero__glow" aria-hidden="true"></div>
+  <div class="scene-hero__scanline" aria-hidden="true"></div>
+  <div class="scene-hero__content">
+    <p class="eyebrow" data-i18n="hero_eyebrow">OPEN SOURCE // MIT LICENSE</p>
+    <h1 class="hero-text" style="margin-top: 1.25rem;">
+      <span data-i18n="hero_h1_1">Your AI marketing</span><br>
+      <span data-i18n="hero_h1_2">team lives in the</span><br>
+      <span class="vi-glow" data-i18n="hero_h1_3">terminal.</span>
+    </h1>
+    <p class="body-text" style="margin: 1.5rem auto 0; text-align: center; max-width: 48ch;" data-i18n="hero_sub">
+      9 agents. 20+ skills. Video, carousels, landing pages, SEO — orchestrated by one command. Free forever.
+    </p>
+    <div class="terminal" style="max-width: 540px; margin: 2rem auto 0; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+      <span><span class="prompt">$</span> <span class="cmd">git clone</span> <span class="flag">https://github.com/melgarafael/growthOS.git</span><span class="cursor"></span></span>
+      <button class="copy-btn" data-copy="git clone https://github.com/melgarafael/growthOS.git" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="1"/><path d="M5 15H4a1 1 0 01-1-1V4a1 1 0 011-1h10a1 1 0 011 1v1"/></svg></button>
+      <span class="copy-toast">copied</span>
+    </div>
+    <div style="display: flex; gap: 0.75rem; justify-content: center; margin-top: 1.5rem;">
+      <a href="https://github.com/melgarafael/growthOS" class="btn btn-primary-lg" data-i18n="hero_cta_primary">Clone repository</a>
+      <a href="https://github.com/melgarafael/growthOS" class="btn btn-outline" style="padding: 16px 36px; font-size: var(--fs-body);" data-i18n="hero_cta_secondary">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCENE 02 — METRICS ═══ -->
+<section class="section-border" aria-label="Key metrics" data-reveal>
+  <div class="page">
+    <div class="metrics">
+      <div class="metric"><div class="metric-val" data-count="9">0</div><div class="metric-label" data-i18n="metric_agents">Agents</div></div>
+      <div class="metric"><div class="metric-val" data-count="20" data-suffix="+">0</div><div class="metric-label" data-i18n="metric_skills">Skills</div></div>
+      <div class="metric"><div class="metric-val" data-count="4">0</div><div class="metric-label" data-i18n="metric_servers">MCP Servers</div></div>
+      <div class="metric"><div class="metric-val" data-count="11">0</div><div class="metric-label" data-i18n="metric_compositions">Compositions</div></div>
+      <div class="metric"><div class="metric-val vi" data-count="$0">—</div><div class="metric-label" data-i18n="metric_price">Forever</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCENE 03 — PROBLEM ═══ -->
+<section class="section scene-problem" aria-label="The problem">
+  <div class="scene-problem__watermark" aria-hidden="true">73%</div>
+  <div class="page narrow">
+    <h2 data-reveal><span data-i18n="problem_h2_1">You built something great.</span><br><span data-i18n="problem_h2_2">Nobody knows it exists.</span></h2>
+    <div class="body-text" style="margin-top: 1.5rem;" data-reveal>
+      <p data-i18n="problem_p1">Your code is clean. Your architecture is solid. Your product solves a real problem.</p>
+      <p style="margin-top: 1rem;" data-i18n="problem_p2">But your landing page is a README. Your social presence is a pinned tweet from 6 months ago. Your "marketing strategy" is hoping someone finds you on Product Hunt.</p>
+      <p style="margin-top: 1rem;"><span data-i18n="problem_p3_pre">You're not alone — </span><strong style="color: var(--ink);" data-i18n="problem_p3_bold">73% of developer side projects</strong><span data-i18n="problem_p3_post"> never get a single paying user. Not because they're bad. Because nobody saw them.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCENE 04 — AGITATION ═══ -->
+<section class="section scene-agitation" aria-label="The cost of inaction">
+  <div class="scene-agitation__gap" aria-hidden="true"></div>
+  <div class="page narrow" style="margin-left: auto; text-align: right;">
+    <h2 data-reveal><span data-i18n="agit_h2_1">Meanwhile, your competitors</span><br><span data-i18n="agit_h2_2">are shipping content.</span></h2>
+    <div class="body-text" style="margin-top: 1.5rem; margin-left: auto;" data-reveal>
+      <p data-i18n="agit_p1">They have landing pages that convert. Social posts that engage. SEO that compounds. Videos that explain their product in 60 seconds.</p>
+      <p style="margin-top: 1rem;" data-i18n="agit_p2">Not because they're better developers. Because they solved the marketing problem.</p>
+      <p style="margin-top: 1rem; color: var(--ink);"><strong data-i18n="agit_p3">Every week you delay, the gap widens.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCENE 05 — SOLUTION ═══ -->
+<section class="section section-border" aria-label="The solution">
+  <div class="page narrow">
+    <p class="eyebrow" data-reveal><span class="n" data-i18n="sol_eyebrow">WHAT IF YOU HAD</span></p>
+    <h2 style="margin-top: 0.5rem;" data-reveal><span data-i18n="sol_h2_1">a full marketing team</span><br><span data-i18n="sol_h2_2">inside Claude Code?</span></h2>
+    <p class="body-text" style="margin-top: 1.25rem;" data-reveal data-i18n="sol_p">
+      growthOS is an open-source plugin that turns Claude Code into an autonomous marketing engine. Strategy, content, SEO, video, carousels, landing pages — orchestrated by 9 AI agents through a single command.
+    </p>
+    <div class="terminal scene-solution__terminal" style="margin-top: 2rem;">
+      <div class="line"><span class="dim" data-i18n="sol_term_comment"># Everything starts here</span></div>
+      <div class="line"><span class="prompt">$</span> <span class="cmd">/grow</span> <span class="flag" data-i18n="sol_term_cmd1">"create a launch strategy for my SaaS"</span></div>
+      <div class="line"><span class="out" data-i18n="sol_term_out1">→ CMO routing intent...</span></div>
+      <div class="line"><span class="out" data-i18n="sol_term_out2">→ Growth Strategist activated</span></div>
+      <div class="line"><span class="out" data-i18n="sol_term_out3">→ Analyzing market, competitors, positioning...</span></div>
+      <div class="line"><span class="success" data-i18n="sol_term_ok1">✓ Strategy document generated. 3 campaign variants ready.</span></div>
+      <div class="line">&nbsp;</div>
+      <div class="line"><span class="prompt">$</span> <span class="cmd">/grow</span> <span class="flag" data-i18n="sol_term_cmd2">"build a landing page for the launch"</span></div>
+      <div class="line"><span class="out" data-i18n="sol_term_out4">→ Visual Designer + Growth Engineer activated</span></div>
+      <div class="line"><span class="out" data-i18n="sol_term_out5">→ Running 8-phase pipeline: discovery → research → design → build...</span></div>
+      <div class="line"><span class="success" data-i18n="sol_term_ok2">✓ Landing page built. 32KB. Lighthouse 96. WCAG AA.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCENE 06 — SHOWCASE (stacking cards with live mini-scenes) ═══ -->
+<section class="showcase section-border" aria-label="Built with growthOS" id="showcase-section">
+  <div class="showcase__header">
+    <p class="eyebrow" data-reveal><span class="n" data-i18n="showcase_label">BUILT WITH GROWTHOS</span></p>
+    <h2 data-reveal data-i18n="showcase_h2">See what it builds.</h2>
+  </div>
+
+  <!-- Progress pips (fixed right) -->
+  <div class="showcase__progress" id="showcase-progress">
+    <div class="showcase__pip is-active" data-pip="0"></div>
+    <div class="showcase__pip" data-pip="1"></div>
+    <div class="showcase__pip" data-pip="2"></div>
+    <div class="showcase__pip" data-pip="3"></div>
+  </div>
+
+  <div class="showcase__cards">
+
+    <!-- CARD 1: Landing Page -->
+    <div class="showcase__card" data-card="0">
+      <div class="showcase__frame">
+        <div class="showcase__frame-bar">
+          <div class="showcase__frame-dots"><span class="showcase__frame-dot"></span><span class="showcase__frame-dot"></span><span class="showcase__frame-dot"></span></div>
+          <span class="showcase__frame-url">growthOS://output/sales-pages/index.html</span>
+          <span class="showcase__frame-badge">LIVE</span>
+        </div>
+        <div class="showcase__frame-body">
+          <div class="mini-lp">
+            <div class="mini-lp__ey">Open Source // MIT License</div>
+            <div class="mini-lp__h1">Your AI marketing<br>team lives in the<br><span>terminal.</span></div>
+            <div class="mini-lp__sub">9 agents. 20+ skills. One command. Free forever.</div>
+            <div class="mini-lp__cta">
+              <span class="mini-lp__btn mini-lp__btn--primary">Clone repository</span>
+              <span class="mini-lp__btn mini-lp__btn--ghost">GitHub</span>
+            </div>
+            <div class="mini-lp__metrics">
+              <div class="mini-lp__metric"><div class="mini-lp__metric-val">9</div><div class="mini-lp__metric-label">Agents</div></div>
+              <div class="mini-lp__metric"><div class="mini-lp__metric-val">20+</div><div class="mini-lp__metric-label">Skills</div></div>
+              <div class="mini-lp__metric"><div class="mini-lp__metric-val">$0</div><div class="mini-lp__metric-label">Forever</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__caption">
+        <span data-i18n="showcase_item1_caption">Skill: sales-page-builder // 8-phase pipeline // design intelligence directed</span>
+        <span class="showcase__caption-skill">01/04</span>
+      </div>
+    </div>
+
+    <!-- CARD 2: Carousel -->
+    <div class="showcase__card" data-card="1">
+      <div class="showcase__frame">
+        <div class="showcase__frame-bar">
+          <div class="showcase__frame-dots"><span class="showcase__frame-dot"></span><span class="showcase__frame-dot"></span><span class="showcase__frame-dot"></span></div>
+          <span class="showcase__frame-url">growthOS://output/carousels/export.png</span>
+          <span class="showcase__frame-badge">1080×1350</span>
+        </div>
+        <div class="showcase__frame-body">
+          <div class="mini-carousel">
+            <div class="mini-slide">
+              <div class="mini-slide__num">01</div>
+              <div class="mini-slide__title">Why your side project needs marketing</div>
+              <div class="mini-slide__body">73% of dev projects fail not because of code — but because nobody knows they exist.</div>
+              <div class="mini-slide__footer">Swipe →</div>
+            </div>
+            <div class="mini-slide">
+              <div class="mini-slide__num">02</div>
+              <div class="mini-slide__title">The one-command solution</div>
+              <div class="mini-slide__body">growthOS gives you 9 AI agents that handle strategy, content, SEO, video — all from your terminal.</div>
+              <div class="mini-slide__footer">Swipe →</div>
+            </div>
+            <div class="mini-slide">
+              <div class="mini-slide__num">03</div>
+              <div class="mini-slide__title">Start growing today</div>
+              <div class="mini-slide__body">git clone, ./install.sh, /grow. Three commands. Zero cost. MIT license.</div>
+              <div class="mini-slide__footer">Link in bio</div>
+            </div>
+            <div class="mini-slide">
+              <div class="mini-slide__num">04</div>
+              <div class="mini-slide__title">Built for devs</div>
+              <div class="mini-slide__body">Pure markdown skills. No lock-in. Fork it and make it yours.</div>
+              <div class="mini-slide__footer">→ growthOS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__caption">
+        <span data-i18n="showcase_item2_caption">Skill: instagram-carousel // 6 HTML templates // auto-export PNG</span>
+        <span class="showcase__caption-skill">02/04</span>
+      </div>
+    </div>
+
+    <!-- CARD 3: Video -->
+    <div class="showcase__card" data-card="2">
+      <div class="showcase__frame">
+        <div class="showcase__frame-bar">
+          <div class="showcase__frame-dots"><span class="showcase__frame-dot"></span><span class="showcase__frame-dot"></span><span class="showcase__frame-dot"></span></div>
+          <span class="showcase__frame-url">growthOS://remotion/render/product-demo.mp4</span>
+          <span class="showcase__frame-badge">16:9</span>
+        </div>
+        <div class="showcase__frame-body">
+          <div class="mini-video">
+            <div class="mini-video__label">Remotion // Product Demo</div>
+            <div class="mini-video__comp">composition: showcase-product-demo</div>
+            <div class="mini-video__canvas">
+              <div class="mini-video__play">▶</div>
+            </div>
+            <div class="mini-video__storyboard">
+              <div class="mini-video__thumb">Intro</div>
+              <div class="mini-video__thumb is-current">Hook</div>
+              <div class="mini-video__thumb">Demo</div>
+              <div class="mini-video__thumb">Features</div>
+              <div class="mini-video__thumb">CTA</div>
+            </div>
+            <div class="mini-video__timeline">
+              <span class="mini-video__time">0:27</span>
+              <div class="mini-video__bar"><div class="mini-video__progress"></div></div>
+              <span class="mini-video__time">0:60</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__caption">
+        <span data-i18n="showcase_item3_caption">Skill: remotion-video // 11 compositions // storyboard → render</span>
+        <span class="showcase__caption-skill">03/04</span>
+      </div>
+    </div>
+
+    <!-- CARD 4: Strategy -->
+    <div class="showcase__card" data-card="3">
+      <div class="showcase__frame">
+        <div class="showcase__frame-bar">
+          <div class="showcase__frame-dots"><span class="showcase__frame-dot"></span><span class="showcase__frame-dot"></span><span class="showcase__frame-dot"></span></div>
+          <span class="showcase__frame-url">claude-code ~ /grow strategy</span>
+          <span class="showcase__frame-badge">TERMINAL</span>
+        </div>
+        <div class="showcase__frame-body">
+          <div class="mini-strategy">
+<span class="h">$ /grow "Q3 launch strategy for developer SaaS"</span>
+<span class="d">→ CMO routing to Growth Strategist...</span>
+
+<span class="h">═══ GROWTH STRATEGY ═══════════════════════</span>
+<span class="b">Product:</span> DevMetrics — performance analytics for dev teams
+<span class="b">Market:</span> 14,000+ engineering teams actively searching
+<span class="b">Awareness:</span> Solution-aware (comparing tools)
+
+<span class="h">── POSITIONING ────────────────────────────</span>
+<span class="b">USP:</span> "Ship quality insights in your PR workflow"
+<span class="b">Angle:</span> Integration-first (GitHub, GitLab, Linear)
+<span class="b">Anti:</span> Not another dashboard — a PR companion
+
+<span class="h">── CAMPAIGN VARIANTS ──────────────────────</span>
+<span class="ok">Variant A:</span> Content-led (SEO blog + social proof)
+<span class="ok">Variant B:</span> Product-led (free tier + viral loop)
+<span class="ok">Variant C:</span> Community-led (open-source core + paid cloud)
+
+<span class="sep">──────────────────────────────────────────</span>
+<span class="ok">✓ Strategy document: ./output/strategy-q3.md</span>
+<span class="ok">✓ 90-day content calendar generated</span>
+<span class="ok">✓ Competitor matrix: 6 tools analyzed</span>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__caption">
+        <span data-i18n="showcase_item4_caption">Skill: marketing-strategy // AARRR funnels // competitive intel</span>
+        <span class="showcase__caption-skill">04/04</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SCENE 07 — HOW IT WORKS ═══ -->
+<section class="section section-border" aria-label="How it works">
+  <div class="page narrow">
+    <h2 data-reveal data-i18n="how_h2">Three commands. That's it.</h2>
+    <div style="margin-top: var(--gap-block);" data-reveal-stagger>
+      <div style="display: flex; gap: 1.5rem; align-items: baseline; padding: 1.5rem 0; border-bottom: 1px solid var(--line);">
+        <span style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--vi); line-height: 1; min-width: 2.5rem;">1</span>
+        <div>
+          <h3 style="margin: 0;" data-i18n="how_step1_title">Clone</h3>
+          <p style="color: var(--ink-2); font-size: var(--fs-sm); margin-top: 0.25rem;">
+            <span class="copy-wrap"><code style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--vi);">git clone https://github.com/melgarafael/growthOS.git && cd growthOS && ./install.sh</code><button class="copy-btn" data-copy="git clone https://github.com/melgarafael/growthOS.git && cd growthOS && ./install.sh" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="1"/><path d="M5 15H4a1 1 0 01-1-1V4a1 1 0 011-1h10a1 1 0 011 1v1"/></svg></button><span class="copy-toast">copied</span></span>
+            <br><span data-i18n="how_step1_desc"> — one symlink, zero dependencies for core.</span>
+          </p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 1.5rem; align-items: baseline; padding: 1.5rem 0; border-bottom: 1px solid var(--line);">
+        <span style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--vi); line-height: 1; min-width: 2.5rem;">2</span>
+        <div>
+          <h3 style="margin: 0;" data-i18n="how_step2_title">Configure</h3>
+          <p style="color: var(--ink-2); font-size: var(--fs-sm); margin-top: 0.25rem;">
+            <span class="copy-wrap"><code style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--vi);">/grow setup</code><button class="copy-btn" data-copy="/grow setup" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="1"/><path d="M5 15H4a1 1 0 01-1-1V4a1 1 0 011-1h10a1 1 0 011 1v1"/></svg></button><span class="copy-toast">copied</span></span>
+            <span data-i18n="how_step2_desc"> — brand name, tone, platforms. Two minutes.</span>
+          </p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 1.5rem; align-items: baseline; padding: 1.5rem 0;">
+        <span style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--vi); line-height: 1; min-width: 2.5rem;">3</span>
+        <div>
+          <h3 style="margin: 0;" data-i18n="how_step3_title">Create</h3>
+          <p style="color: var(--ink-2); font-size: var(--fs-sm); margin-top: 0.25rem;">
+            <span class="copy-wrap"><code style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--vi);" data-i18n="how_step3_desc_code">/grow "what you need"</code><button class="copy-btn" data-copy='/grow "what you need"' aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="1"/><path d="M5 15H4a1 1 0 01-1-1V4a1 1 0 011-1h10a1 1 0 011 1v1"/></svg></button><span class="copy-toast">copied</span></span>
+            <span data-i18n="how_step3_desc"> — the CMO routes to the right specialist.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCENE 08 — ARCHITECTURE ═══ -->
+<section class="section section-border" aria-label="Agent architecture">
+  <div class="page">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+      <div>
+        <h2 data-reveal data-i18n="arch_h2">Meet your team.</h2>
+        <p class="body-text" style="margin-top: 1rem;" data-reveal data-i18n="arch_p">9 agents, each with a clear role. The CMO routes every request to the right specialist. Pure markdown + YAML — portable, inspectable, forkable.</p>
+      </div>
+      <div class="scene-arch__tree" data-reveal-stagger>
+        <div class="scene-arch__line" aria-hidden="true"></div>
+        <div class="scene-arch__root"><span class="vi">CMO</span> <span style="color: var(--ink-3); font-size: var(--fs-sm);" data-i18n="arch_cmo">// router</span></div>
+        <div class="scene-arch__node"><span class="scene-arch__name" data-i18n="arch_agent1">Growth Strategist</span><span class="scene-arch__role" data-i18n="arch_role1">frameworks, OKRs</span></div>
+        <div class="scene-arch__node"><span class="scene-arch__name" data-i18n="arch_agent2">Content Creator</span><span class="scene-arch__role" data-i18n="arch_role2">blog, newsletter</span></div>
+        <div class="scene-arch__node"><span class="scene-arch__name" data-i18n="arch_agent3">Intelligence Analyst</span><span class="scene-arch__role" data-i18n="arch_role3">competitors, trends</span></div>
+        <div class="scene-arch__node"><span class="scene-arch__name" data-i18n="arch_agent4">Visual Designer</span><span class="scene-arch__role" data-i18n="arch_role4">landing pages, carousels</span></div>
+        <div class="scene-arch__node"><span class="scene-arch__name" data-i18n="arch_agent5">Social Publisher</span><span class="scene-arch__role" data-i18n="arch_role5">5 platforms</span></div>
+        <div class="scene-arch__node"><span class="scene-arch__name" data-i18n="arch_agent6">Growth Engineer</span><span class="scene-arch__role" data-i18n="arch_role6">SEO, technical</span></div>
+        <div class="scene-arch__node"><span class="scene-arch__name" data-i18n="arch_agent7">Video Producer</span><span class="scene-arch__role" data-i18n="arch_role7">remotion, 11 templates</span></div>
+        <div class="scene-arch__node"><span class="scene-arch__name" data-i18n="arch_agent8">Carousel Designer</span><span class="scene-arch__role" data-i18n="arch_role8">6 formats</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCENE 09 — SAFETY ═══ -->
+<section class="section section-border" aria-label="Safety and openness">
+  <div class="page">
+    <h2 data-reveal data-i18n="safety_h2">Built for safety. Open by design.</h2>
+    <div class="scene-safety__grid" style="margin-top: var(--gap-block);" data-reveal>
+      <div class="scene-safety__cell"><div class="scene-safety__label" data-i18n="safety_1_label">DRY-RUN DEFAULT</div><div class="scene-safety__desc" data-i18n="safety_1_desc">Nothing publishes without your explicit approval.</div></div>
+      <div class="scene-safety__cell"><div class="scene-safety__label" data-i18n="safety_2_label">KILL SWITCH</div><div class="scene-safety__desc" data-i18n="safety_2_desc">Revoke all autonomous permissions instantly.</div></div>
+      <div class="scene-safety__cell"><div class="scene-safety__label" data-i18n="safety_3_label">MIT LICENSE</div><div class="scene-safety__desc" data-i18n="safety_3_desc">Fork it. Modify it. No strings. No lock-in.</div></div>
+      <div class="scene-safety__cell"><div class="scene-safety__label" data-i18n="safety_4_label">PURE MARKDOWN</div><div class="scene-safety__desc" data-i18n="safety_4_desc">Skills are portable text files. Take them anywhere.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCENE 10 — FAQ ═══ -->
+<section class="section section-border" aria-label="FAQ">
+  <div class="page narrow">
+    <p style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-4);" data-reveal data-i18n="faq_label"># frequently_asked</p>
+    <div style="margin-top: var(--gap-group); border-top: 1px solid var(--line);">
+      <div class="acc-item open">
+        <button class="acc-trigger"><span data-i18n="faq_q1">Does it work without Claude Code?</span> <span class="arrow">+</span></button>
+        <div class="acc-body"><span data-i18n="faq_a1">Core skills are pure markdown — portable to any LLM framework. The agent orchestration needs Claude Code's plugin system, but your content and strategies go wherever you go.</span></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger"><span data-i18n="faq_q2">I'm not a marketer. Will I know what to do?</span> <span class="arrow">+</span></button>
+        <div class="acc-body"><span data-i18n="faq_a2_pre">That's the point. Describe what you need: </span><code data-i18n="faq_a2_code">/grow "I need content for my product launch"</code><span data-i18n="faq_a2_post">. The CMO agent figures out which specialists to activate.</span></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger"><span data-i18n="faq_q3">What about the optional dependencies?</span> <span class="arrow">+</span></button>
+        <div class="acc-body"><span data-i18n="faq_a3_pre">Node for video rendering, Python for MCP servers. But the core — skills, agents, commands — is zero-dependency markdown. Install takes one command, uninstall takes one </span><code data-i18n="faq_a3_code">rm</code><span data-i18n="faq_a3_post">.</span></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger"><span data-i18n="faq_q4">Why is it free?</span> <span class="arrow">+</span></button>
+        <div class="acc-body"><span data-i18n="faq_a4">Because marketing shouldn't be a competitive disadvantage for solo developers. MIT license, open source, community-driven. The design intelligence base grows with every project.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCENE 11 — FINAL CTA ═══ -->
+<section id="final" class="scene-final section-border" aria-label="Get started">
+  <div class="page" style="text-align: center;">
+    <h2 class="mega" data-reveal><span data-i18n="final_h2_1">Start</span><br><span class="vi-glow" data-i18n="final_h2_2">growing.</span></h2>
+    <p class="body-text" style="margin: 1.5rem auto 0; text-align: center;" data-i18n="final_sub">Free. Open source. One command away.</p>
+    <div class="terminal" style="max-width: 540px; margin: 2rem auto 0; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 12px;" data-reveal>
+      <span><span class="prompt">$</span> <span class="cmd">git clone</span> <span class="flag">https://github.com/melgarafael/growthOS.git</span></span>
+      <button class="copy-btn" data-copy="git clone https://github.com/melgarafael/growthOS.git" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="1"/><path d="M5 15H4a1 1 0 01-1-1V4a1 1 0 011-1h10a1 1 0 011 1v1"/></svg></button>
+      <span class="copy-toast">copied</span>
+    </div>
+    <div style="display: flex; gap: 0.75rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap;" data-reveal>
+      <a href="https://github.com/melgarafael/growthOS" class="btn btn-primary-lg" data-i18n="final_cta_primary">Clone repository</a>
+      <a href="https://github.com/melgarafael/growthOS" class="btn btn-outline" style="padding: 16px 36px; font-size: var(--fs-body);" data-i18n="final_cta_secondary">GitHub</a>
+      <a href="#" class="btn btn-text" style="padding: 16px 0; font-size: var(--fs-body);" data-i18n="final_cta_docs">Read the docs</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer page">
+  <span style="color: var(--ink-2);">growthOS</span>
+  <span>—</span>
+  <span data-i18n="footer_license">MIT License</span>
+  <span>—</span>
+  <span style="margin-left: auto;"><span class="vi-mark">◆</span> <span data-i18n="footer_rendered">rendered from code</span></span>
+</footer>
+
+<!-- ═══ SCRIPTS (order matters: i18n dicts → engine → i18n init) ═══ -->
+<script src="src/i18n/en.js"></script>
+<script src="src/i18n/es.js"></script>
+<script src="src/i18n/pt-br.js"></script>
+<script src="src/js/scroll-engine.js"></script>
+<script src="src/js/i18n.js"></script>
+<script>
+/* Copy-to-clipboard for all .copy-btn elements */
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.copy-btn');
+  if (!btn) return;
+  const text = btn.dataset.copy;
+  if (!text) return;
+  navigator.clipboard.writeText(text).then(function() {
+    btn.classList.add('is-copied');
+    setTimeout(function() { btn.classList.remove('is-copied'); }, 1500);
+  });
+});
+</script>
+<script>
+/* Showcase stacking cards — progress pips track which card is in view */
+(function() {
+  const section = document.getElementById('showcase-section');
+  const progress = document.getElementById('showcase-progress');
+  const cards = document.querySelectorAll('.showcase__card');
+  const pips = document.querySelectorAll('.showcase__pip');
+  if (!section || !cards.length) return;
+
+  const sectionObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      progress.classList.toggle('is-visible', e.isIntersecting);
+    });
+  }, { threshold: 0.05 });
+  sectionObs.observe(section);
+
+  const cardObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.intersectionRatio > 0.4) {
+        const idx = parseInt(e.target.dataset.card, 10);
+        pips.forEach((p, i) => p.classList.toggle('is-active', i === idx));
+      }
+    });
+  }, { threshold: [0.4, 0.6, 0.8] });
+  cards.forEach(c => cardObs.observe(c));
+})();
+</script>
+</body>
+</html>

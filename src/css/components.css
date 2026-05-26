@@ -1,0 +1,197 @@
+/* ═══════════════════════════════════════════
+   components.css — Reusable UI components
+   Sharp corners. No emojis. Typography-driven.
+   ═══════════════════════════════════════════ */
+
+/* ── Nav ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(8, 8, 10, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  transform: translateY(-100%);
+  transition: transform var(--dur-med) var(--ease);
+}
+.nav.is-visible { transform: translateY(0); }
+.nav__inner {
+  max-width: var(--page-w); margin-inline: auto;
+  padding: 14px clamp(20px, 4vw, 48px);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav__logo {
+  font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink);
+}
+.nav__cta {
+  font-family: var(--font-body); font-size: var(--fs-sm); font-weight: 500;
+  color: var(--bg); background: var(--vi);
+  padding: 7px 18px; border: none; cursor: pointer;
+  transition: background var(--dur-fast) var(--ease);
+}
+.nav__cta:hover { background: var(--vi-hover); }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-weight: 500;
+  font-size: var(--fs-sm); border: none; cursor: pointer;
+  text-decoration: none; transition: all var(--dur-fast) var(--ease);
+  position: relative;
+}
+.btn:focus-visible { outline: 1px solid var(--vi); outline-offset: 3px; }
+
+.btn-primary {
+  background: var(--vi); color: var(--bg);
+  padding: 12px 28px;
+}
+.btn-primary:hover { background: var(--vi-hover); }
+.btn-primary:active { background: var(--vi-active); }
+
+.btn-primary-lg {
+  background: var(--vi); color: var(--bg);
+  padding: 16px 36px; font-size: var(--fs-body);
+}
+.btn-primary-lg:hover { background: var(--vi-hover); }
+
+.btn-outline {
+  background: transparent; color: var(--ink);
+  padding: 12px 28px; border: 1px solid var(--line);
+}
+.btn-outline:hover { border-color: var(--line-h); }
+
+.btn-text {
+  background: none; color: var(--vi); padding: 0;
+  font-family: var(--font-mono); font-size: var(--fs-sm);
+}
+.btn-text::after { content: ' →'; }
+.btn-text:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ── Terminal ── */
+.terminal {
+  background: var(--bg-code); border: 1px solid var(--line);
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-mono); font-size: var(--fs-sm);
+  color: var(--ink-2); line-height: 1.8; overflow-x: auto;
+}
+.terminal .prompt { color: var(--ok); }
+.terminal .cmd { color: var(--ink); }
+.terminal .flag { color: var(--vi); opacity: 0.7; }
+.terminal .dim { color: var(--ink-4); font-style: italic; }
+.terminal .out { color: var(--ink-3); }
+.terminal .success { color: var(--ok); }
+
+/* ── Typed cursor ── */
+.cursor {
+  display: inline-block; width: 2px; height: 1.1em;
+  background: var(--vi); margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ── Surface ── */
+.surface {
+  background: var(--bg-1); border: 1px solid var(--line);
+  padding: 1.5rem;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.surface:hover { border-color: var(--line-h); }
+
+/* ── Tags ── */
+.tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--font-mono); font-size: var(--fs-xs);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 3px 8px; border: 1px solid var(--vi-line); color: var(--vi);
+}
+
+/* ── Metrics ── */
+.metrics {
+  display: flex; border: 1px solid var(--line);
+}
+.metric {
+  flex: 1; padding: 1.5rem; text-align: center;
+  border-right: 1px solid var(--line);
+}
+.metric:last-child { border-right: none; }
+.metric-val {
+  font-family: var(--font-display); font-size: 2.5rem;
+  font-weight: 700; letter-spacing: -0.03em; line-height: 1;
+}
+.metric-label {
+  font-family: var(--font-mono); font-size: var(--fs-xs);
+  color: var(--ink-4); text-transform: uppercase;
+  letter-spacing: 0.08em; margin-top: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .metrics { flex-direction: column; }
+  .metric { border-right: none; border-bottom: 1px solid var(--line); }
+  .metric:last-child { border-bottom: none; }
+}
+
+/* ── Accordion ── */
+.acc-item { border-bottom: 1px solid var(--line); }
+.acc-trigger {
+  width: 100%; background: none; border: none; cursor: pointer;
+  font-family: var(--font-body); font-size: var(--fs-body); font-weight: 500;
+  color: var(--ink); text-align: left;
+  padding: 1.25rem 0;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: color var(--dur-fast);
+}
+.acc-trigger:hover { color: var(--vi); }
+.acc-trigger .arrow {
+  font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-4);
+  transition: transform var(--dur-med) var(--ease);
+}
+.acc-item.open .arrow { transform: rotate(45deg); }
+.acc-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height var(--dur-med) var(--ease);
+  color: var(--ink-2); font-size: var(--fs-sm); max-width: var(--measure);
+}
+.acc-item.open .acc-body { max-height: 200px; padding-bottom: 1.25rem; }
+.acc-body code { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--vi); }
+
+/* ── Language Switcher ── */
+.lang-switcher {
+  display: flex; gap: 2px; margin-left: auto;
+  border: 1px solid var(--line); overflow: hidden;
+}
+.lang-btn {
+  font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  background: transparent; color: var(--ink-3);
+  border: none; padding: 5px 10px; cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+}
+.lang-btn:hover { color: var(--ink); background: var(--bg-2); }
+.lang-btn.is-active { color: var(--vi); background: var(--vi-dim); }
+
+/* ── Copy button (inline with code) ── */
+.copy-wrap {
+  position: relative; display: inline-flex; align-items: center; gap: 8px;
+}
+.copy-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; padding: 0;
+  background: var(--bg-2); border: 1px solid var(--line);
+  color: var(--ink-3); cursor: pointer;
+  font-family: var(--font-mono); font-size: 0.625rem;
+  transition: all var(--dur-fast) var(--ease);
+  flex-shrink: 0;
+}
+.copy-btn:hover { color: var(--vi); border-color: var(--vi-line); }
+.copy-btn.is-copied { color: var(--ok); border-color: rgba(110,231,183,0.25); }
+.copy-btn svg { width: 14px; height: 14px; }
+.copy-toast {
+  position: absolute; right: -4px; top: -28px;
+  font-family: var(--font-mono); font-size: 0.5625rem;
+  color: var(--ok); background: var(--bg-1); border: 1px solid rgba(110,231,183,0.2);
+  padding: 2px 8px; white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transition: opacity 150ms, transform 150ms;
+  transform: translateY(4px);
+}
+.copy-btn.is-copied + .copy-toast { opacity: 1; transform: translateY(0); }
