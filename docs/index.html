@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>growthOS — Documentation</title>
+<meta name="description" content="Complete documentation for growthOS — the autonomous marketing team for Claude Code. 26 skills, 12 agents, 4 MCP servers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../src/css/tokens.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<div class="docs">
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="docs-sidebar">
+  <div class="docs-sidebar__header">
+    <a href="../" class="docs-sidebar__logo">growthOS</a>
+    <a href="../" class="docs-sidebar__back">← Back to landing page</a>
+  </div>
+  <nav class="docs-sidebar__nav" aria-label="Documentation">
+
+    <div class="docs-nav-group">
+      <span class="docs-nav-label">Getting Started</span>
+      <a href="#overview" class="docs-nav-link is-active">Overview</a>
+      <a href="#installation" class="docs-nav-link">Installation</a>
+      <a href="#quick-start" class="docs-nav-link">Quick Start</a>
+      <a href="#brand-voice" class="docs-nav-link">Brand Voice Setup</a>
+    </div>
+
+    <div class="docs-nav-group">
+      <span class="docs-nav-label">Core Concepts</span>
+      <a href="#architecture" class="docs-nav-link">Architecture</a>
+      <a href="#cmo-router" class="docs-nav-link">CMO Router</a>
+      <a href="#safety" class="docs-nav-link">Safety System</a>
+      <a href="#anti-slop" class="docs-nav-link">Anti-Slop Engine</a>
+    </div>
+
+    <div class="docs-nav-group">
+      <span class="docs-nav-label">Agents (12)</span>
+      <a href="#agents-overview" class="docs-nav-link">Agent Overview</a>
+      <a href="#agent-cmo" class="docs-nav-link docs-nav-link--sub">CMO</a>
+      <a href="#agent-strategist" class="docs-nav-link docs-nav-link--sub">Growth Strategist</a>
+      <a href="#agent-content" class="docs-nav-link docs-nav-link--sub">Content Creator</a>
+      <a href="#agent-intel" class="docs-nav-link docs-nav-link--sub">Intelligence Analyst</a>
+      <a href="#agent-visual" class="docs-nav-link docs-nav-link--sub">Visual Designer</a>
+      <a href="#agent-social" class="docs-nav-link docs-nav-link--sub">Social Publisher</a>
+      <a href="#agent-engineer" class="docs-nav-link docs-nav-link--sub">Growth Engineer</a>
+      <a href="#agent-carousel" class="docs-nav-link docs-nav-link--sub">Carousel Designer</a>
+      <a href="#agent-video" class="docs-nav-link docs-nav-link--sub">Video Producer</a>
+      <a href="#agent-sales" class="docs-nav-link docs-nav-link--sub">Sales Page Agents</a>
+    </div>
+
+    <div class="docs-nav-group">
+      <span class="docs-nav-label">Skills (26)</span>
+      <a href="#skills-core" class="docs-nav-link">Core Skills (11)</a>
+      <a href="#skills-sales" class="docs-nav-link">Sales Page Pipeline (6)</a>
+      <a href="#skills-showcase" class="docs-nav-link">Video Showcase (9)</a>
+    </div>
+
+    <div class="docs-nav-group">
+      <span class="docs-nav-label">Commands</span>
+      <a href="#grow-command" class="docs-nav-link">/grow Reference</a>
+    </div>
+
+    <div class="docs-nav-group">
+      <span class="docs-nav-label">Design Intelligence</span>
+      <a href="#design-doctrine" class="docs-nav-link">Design Doctrine</a>
+      <a href="#archetypes" class="docs-nav-link">7 Archetypes</a>
+      <a href="#references" class="docs-nav-link">Reference Sites (11)</a>
+      <a href="#theory" class="docs-nav-link">Psychology Theory (5)</a>
+    </div>
+
+    <div class="docs-nav-group">
+      <span class="docs-nav-label">Infrastructure</span>
+      <a href="#mcp-servers" class="docs-nav-link">MCP Servers (4)</a>
+      <a href="#hooks" class="docs-nav-link">Safety Hooks (4)</a>
+      <a href="#remotion" class="docs-nav-link">Remotion Engine (11)</a>
+      <a href="#templates" class="docs-nav-link">Templates</a>
+    </div>
+
+    <div class="docs-nav-group">
+      <span class="docs-nav-label">Reference</span>
+      <a href="#voice-system" class="docs-nav-link">Voice System</a>
+      <a href="#config" class="docs-nav-link">Configuration</a>
+      <a href="#env-vars" class="docs-nav-link">Environment Variables</a>
+    </div>
+
+  </nav>
+</aside>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<div class="docs-main">
+
+<!-- ────────────────────────────────────────── -->
+<section id="overview">
+<h1>growthOS Documentation</h1>
+<p>growthOS is an open-source plugin that turns Claude Code into an <strong>autonomous marketing team</strong>. 12 AI agents, 26 skills, 4 MCP servers, one <code>/grow</code> command.</p>
+
+<div class="docs-callout">
+  <strong>Zero cost.</strong> MIT license. The core (skills, agents, commands) is pure markdown — zero external dependencies. Node and Python are only needed for optional engines (video rendering, MCP servers).
+</div>
+
+<div class="docs-cards">
+  <div class="docs-card"><div class="docs-card__title">12 Agents</div><div class="docs-card__desc">CMO router + 11 specialists that delegate automatically</div><div class="docs-card__tag">agents</div></div>
+  <div class="docs-card"><div class="docs-card__title">26 Skills</div><div class="docs-card__desc">Strategy, copy, SEO, content, social, video, landing pages, carousels</div><div class="docs-card__tag">skills</div></div>
+  <div class="docs-card"><div class="docs-card__title">4 MCP Servers</div><div class="docs-card__desc">Social publish, analytics, Obsidian vault, Remotion render</div><div class="docs-card__tag">infrastructure</div></div>
+  <div class="docs-card"><div class="docs-card__title">11 Video Compositions</div><div class="docs-card__desc">Reels, explainers, product demos, walkthroughs via Remotion</div><div class="docs-card__tag">remotion</div></div>
+  <div class="docs-card"><div class="docs-card__title">7 Design Archetypes</div><div class="docs-card__desc">Tech-elite, AI-native, cinematic, conversion-machine, and more</div><div class="docs-card__tag">design intelligence</div></div>
+  <div class="docs-card"><div class="docs-card__title">Safety-First</div><div class="docs-card__desc">Dry-run default, kill switch, audit log, circuit breaker</div><div class="docs-card__tag">safety</div></div>
+</div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="installation">
+<h2>Installation</h2>
+<p>growthOS is distributed via <code>git clone</code> only — it is not on the Claude Code marketplace.</p>
+
+<h3>What do you need?</h3>
+<div class="docs-table-wrap"><table>
+  <tr><th>If you want to...</th><th>You need</th></tr>
+  <tr><td>Use <code>/grow</code>, skills, agents (strategy, copy, content, analysis)</td><td><strong>Nothing</strong> beyond Claude Code</td></tr>
+  <tr><td>Render Remotion videos or export carousels to PNG</td><td><strong>Node 18+</strong></td></tr>
+  <tr><td>Run MCP servers or the Instagram publisher</td><td><strong>Python 3.10+</strong></td></tr>
+  <tr><td>Everything</td><td>Node 18+ and Python 3.10+</td></tr>
+</table></div>
+
+<h3>1. Clone and install</h3>
+<pre>git clone https://github.com/melgarafael/growthOS.git
+cd growthOS
+./install.sh</pre>
+<p>The installer creates a symlink <code>~/.claude/plugins/growthOS → your clone</code> and copies the brand voice template. Restart Claude Code after install.</p>
+
+<h3>2. Optional dependencies</h3>
+<pre># Python (MCP servers, publisher)
+pip install -e shared-lib/
+
+# Node (Remotion, carousel export)
+npm install</pre>
+
+<h3>3. Docker (optional)</h3>
+<pre>cp .env.example .env   # edit with your API keys
+docker-compose up -d</pre>
+
+<h3>Uninstall</h3>
+<pre>rm ~/.claude/plugins/growthOS</pre>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="quick-start">
+<h2>Quick Start</h2>
+<p>Everything goes through <code>/grow</code>:</p>
+<pre># First run — configure your brand
+/grow setup
+
+# Create a growth strategy
+/grow strategy "Launch our SaaS in Q3"
+
+# Write content
+/grow create blog "Why AI is transforming marketing"
+/grow create thread "5 growth hacks for startups"
+
+# Create visual content
+/grow carousel "10 tips for better landing pages"
+/grow video reel "Quick product demo"
+
+# Analyze competitors
+/grow analyze "competitor X social strategy"
+
+# Generate a landing page
+/grow create landing "New feature launch page"
+
+# Or just describe what you need
+/grow "I need content for our product launch next week"</pre>
+
+<div class="docs-callout">
+  <strong>The CMO agent routes automatically.</strong> You don't need to remember which agent handles what — describe your intent in natural language and the CMO classifies and delegates.
+</div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="brand-voice">
+<h2>Brand Voice Setup</h2>
+<p>Run <code>/grow setup</code> to configure your brand. The wizard writes to <code>brand-voice.yaml</code> (gitignored — your brand never leaks into the repo).</p>
+
+<h3>Configuration sections</h3>
+<div class="docs-table-wrap"><table>
+  <tr><th>Section</th><th>What it controls</th></tr>
+  <tr><td><code>brand:</code></td><td>Name, tagline, tone descriptors, avoided words, personality, industry</td></tr>
+  <tr><td><code>platforms:</code></td><td>Per-platform config — enabled flag, tone override, max length, post types</td></tr>
+  <tr><td><code>anti_slop:</code></td><td>20 banned phrases, style rules, custom banned words</td></tr>
+  <tr><td><code>autonomy:</code></td><td>Level (manual/semi/auto), require_preview, dry_run_default, kill_switch</td></tr>
+</table></div>
+
+<h3>Supported platforms</h3>
+<p>LinkedIn, Twitter/X, Reddit, Threads, GitHub, YouTube, Instagram, StackOverflow. Each has independent tone override and content limits.</p>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="architecture">
+<h2>Architecture</h2>
+<p>growthOS follows a <strong>CMO router pattern</strong>: every request enters through a single command (<code>/grow</code>), gets classified by the CMO agent via NLP, and is delegated to the appropriate specialist agent. Agents invoke skills, which may call MCP servers for external operations.</p>
+
+<pre>User → /grow "..." → CMO (intent classification)
+                        ├── Growth Strategist    → marketing-strategy skill
+                        ├── Content Creator      → content-creation + copywriting skills
+                        ├── Intelligence Analyst → competitive-intelligence skill
+                        ├── Visual Designer      → landing-page-design skill
+                        ├── Social Publisher     → social-media + MCP social-publish
+                        ├── Growth Engineer      → landing-page-design + seo-growth skills
+                        ├── Carousel Designer    → instagram-carousel skill + templates
+                        ├── Video Producer       → remotion-video skill + MCP remotion-render
+                        └── Sales Page Architect → 8-phase pipeline (6 skills)</pre>
+
+<h3>File structure</h3>
+<pre>growthOS/
+├── agents/          # 12 AI agents (AGENT.md definitions)
+├── skills/          # 26 skills (SKILL.md definitions)
+├── commands/        # /grow command entry point
+├── hooks/           # 4 safety hooks
+├── mcp-servers/     # 4 MCP servers (Python/FastMCP)
+├── remotion/        # Video engine (11 compositions)
+├── templates/       # HTML templates (carousels, landing pages)
+├── design-intelligence/  # Visual doctrine + references
+├── voice/           # Brand voice, offers, viral intelligence
+├── shared-lib/      # Python shared library
+└── brand-voice.yaml # Your brand config (gitignored)</pre>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="cmo-router">
+<h2>CMO Router</h2>
+<p>The CMO is the <strong>single entry point</strong> for all growthOS interactions. It classifies user intent into categories and routes to the correct specialist.</p>
+
+<h3>Intent classification</h3>
+<div class="docs-table-wrap"><table>
+  <tr><th>Category</th><th>Routes to</th><th>Example</th></tr>
+  <tr><td>STRATEGY</td><td>Growth Strategist</td><td><code>/grow strategy "Q3 launch plan"</code></td></tr>
+  <tr><td>CREATE</td><td>Content Creator</td><td><code>/grow create blog "topic"</code></td></tr>
+  <tr><td>PUBLISH</td><td>Social Publisher</td><td><code>/grow publish linkedin "post"</code></td></tr>
+  <tr><td>ANALYZE</td><td>Intelligence Analyst</td><td><code>/grow analyze "competitor X"</code></td></tr>
+  <tr><td>RESEARCH</td><td>Intelligence Analyst</td><td><code>/grow research "AI tools 2026"</code></td></tr>
+  <tr><td>VISUAL</td><td>Visual Designer</td><td><code>/grow visual "thumbnail"</code></td></tr>
+  <tr><td>LANDING</td><td>Growth Engineer</td><td><code>/grow create landing "feature"</code></td></tr>
+  <tr><td>CAROUSEL</td><td>Carousel Designer</td><td><code>/grow carousel "10 tips"</code></td></tr>
+  <tr><td>VIDEO</td><td>Video Producer</td><td><code>/grow video reel "demo"</code></td></tr>
+  <tr><td>MEME</td><td>Meme Creator</td><td><code>/grow meme "dev humor"</code></td></tr>
+</table></div>
+
+<h3>Pipeline detection</h3>
+<p>The CMO detects multi-step intents and chains agents automatically:</p>
+<ul>
+  <li><strong>create-and-publish</strong> — Content Creator → Social Publisher</li>
+  <li><strong>create-and-design</strong> — Content Creator → Visual Designer</li>
+  <li><strong>research-and-create</strong> — Intelligence Analyst → Content Creator</li>
+  <li><strong>full-publish-pipeline</strong> — Research → Create → Design → Publish</li>
+</ul>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="safety">
+<h2>Safety System</h2>
+<p>growthOS is designed with <strong>safety-first principles</strong>. Nothing publishes without your explicit approval by default.</p>
+
+<h3>Autonomy levels</h3>
+<div class="docs-table-wrap"><table>
+  <tr><th>Level</th><th>Behavior</th></tr>
+  <tr><td><code>manual</code></td><td>All publish actions blocked — requires Y/N confirmation for everything</td></tr>
+  <tr><td><code>semi</code> (default)</td><td>Same as manual for publishes; some read-only actions proceed automatically</td></tr>
+  <tr><td><code>auto</code></td><td>Logs preview but allows publish to proceed without confirmation</td></tr>
+</table></div>
+
+<h3>Safety mechanisms</h3>
+<div class="docs-table-wrap"><table>
+  <tr><th>Mechanism</th><th>What it does</th></tr>
+  <tr><td><strong>Dry-run mode</strong></td><td>ON by default. All MCP calls return synthetic responses — zero real API calls</td></tr>
+  <tr><td><strong>Kill switch</strong></td><td>Instantly revokes all autonomous permissions</td></tr>
+  <tr><td><strong>Audit logger</strong></td><td>Every MCP call logged to JSONL with sensitive fields redacted</td></tr>
+  <tr><td><strong>Circuit breaker</strong></td><td>Auto-stops after 3 consecutive API failures per server. Recovers after 60s</td></tr>
+  <tr><td><strong>Preview gate</strong></td><td>Shows formatted preview of every publish action before execution</td></tr>
+  <tr><td><strong>Path validation</strong></td><td>Obsidian vault operations prevent directory traversal</td></tr>
+</table></div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="anti-slop">
+<h2>Anti-Slop Engine</h2>
+<p>growthOS enforces <strong>zero tolerance for generic AI output</strong> across copy and design.</p>
+
+<h3>Banned phrases (Tier 1 — auto-reject)</h3>
+<p>"game-changer", "revolutionary", "cutting-edge", "best-in-class", "synergy", "leverage", "disrupt", "innovative solution", "transform your", "unlock the power", "dive deep", "it's worth noting", "in today's fast-paced", "at the end of the day", "think outside the box", "move the needle", "low-hanging fruit", "paradigm shift", "holistic approach", "seamlessly integrate"</p>
+
+<h3>Style rules (always enforced)</h3>
+<ul>
+  <li>Active voice over passive</li>
+  <li>Specific numbers over vague claims</li>
+  <li>No clickbait headlines</li>
+  <li>No unsupported superlatives</li>
+  <li>Custom banned phrases via <code>brand-voice.yaml</code></li>
+</ul>
+
+<h3>Visual anti-slop (design)</h3>
+<p>The Design Intelligence system has a parallel 3-tier anti-slop checklist in <code>AI-SLOP.md</code>. Tier 1 bans: generic gradients, Inter/Roboto as display font, stock photos, rounded corners &gt;16px on cards, everything-centered layouts.</p>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="agents-overview">
+<h2>Agents</h2>
+<p>12 AI agents, each with a clear role. The CMO routes every <code>/grow</code> request to the right specialist.</p>
+
+<div class="docs-table-wrap"><table>
+  <tr><th>Agent</th><th>Role</th><th>Activates when</th></tr>
+  <tr id="agent-cmo"><td><strong>CMO</strong></td><td>Intent router, orchestrator</td><td>Every <code>/grow</code> command</td></tr>
+  <tr id="agent-strategist"><td><strong>Growth Strategist</strong></td><td>Frameworks, OKRs, campaign planning, AARRR funnels</td><td>Strategy requests</td></tr>
+  <tr id="agent-content"><td><strong>Content Creator</strong></td><td>Blog, newsletter, social, editorial workflows</td><td>Content creation</td></tr>
+  <tr id="agent-intel"><td><strong>Intelligence Analyst</strong></td><td>Competitor analysis, market research, trends</td><td>Analysis/research requests</td></tr>
+  <tr id="agent-visual"><td><strong>Visual Designer</strong></td><td>Thumbnails, OG images, social graphics specs</td><td>Visual asset needs</td></tr>
+  <tr id="agent-social"><td><strong>Social Publisher</strong></td><td>Multi-platform publishing, preview-before-publish</td><td>Publish intents</td></tr>
+  <tr id="agent-engineer"><td><strong>Growth Engineer</strong></td><td>Landing pages, A/B tests, CRO, analytics</td><td>Landing/technical growth</td></tr>
+  <tr id="agent-carousel"><td><strong>Carousel Designer</strong></td><td>Instagram carousels (6 templates, 1080x1350)</td><td>Carousel requests</td></tr>
+  <tr id="agent-video"><td><strong>Video Producer</strong></td><td>Remotion compositions, storyboard-to-render pipeline</td><td>Video requests</td></tr>
+  <tr id="agent-sales"><td><strong>Sales Page Architect</strong></td><td>8-phase sales page pipeline (fusion director)</td><td>Phase 6 of sales pipeline</td></tr>
+  <tr><td><strong>Sales Page QA</strong></td><td>Playwright E2E, visual regression, performance audit</td><td>Phase 8 of sales pipeline</td></tr>
+  <tr><td><strong>Caption Writer</strong></td><td>Instagram captions for approved carousels</td><td><code>/grow caption</code></td></tr>
+</table></div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="skills-core">
+<h2>Core Skills (11)</h2>
+<div class="docs-table-wrap"><table>
+  <tr><th>Skill</th><th>What it does</th><th>Trigger</th></tr>
+  <tr><td><strong>marketing-strategy</strong></td><td>Growth frameworks (AARRR, ICE, RICE), positioning, OKRs, campaign planning, TAM/SAM/SOM</td><td><code>/grow strategy</code></td></tr>
+  <tr><td><strong>copywriting</strong></td><td>AIDA, PAS, 4U formulas, CTA patterns, emotional triggers, anti-slop enforcement</td><td>Any copy task</td></tr>
+  <tr><td><strong>seo-growth</strong></td><td>Keyword research, on-page audit, content clusters, E-E-A-T signals</td><td><code>/grow create seo</code></td></tr>
+  <tr><td><strong>content-creation</strong></td><td>Blog posts, newsletters, docs, social content, editorial workflows</td><td><code>/grow create</code></td></tr>
+  <tr><td><strong>social-media-management</strong></td><td>Platform strategies, scheduling, community management</td><td><code>/grow create social</code></td></tr>
+  <tr><td><strong>competitive-intelligence</strong></td><td>SWOT analysis, market trends, competitor tracking, pricing intel</td><td><code>/grow analyze</code></td></tr>
+  <tr><td><strong>video-production</strong></td><td>Video scripts (YouTube format), storyboards, thumbnails, video SEO</td><td><code>/grow video script</code></td></tr>
+  <tr><td><strong>landing-page-design</strong></td><td>Conversion-optimized single-file HTML, hero sections, A/B variants</td><td><code>/grow create landing</code></td></tr>
+  <tr><td><strong>platform-mastery</strong></td><td>Per-platform algorithm knowledge (YouTube, LinkedIn, X, Reddit, IG, GitHub)</td><td>Platform optimization</td></tr>
+  <tr><td><strong>instagram-carousel</strong></td><td>6 carousel structures, slide blueprints, engagement triggers</td><td><code>/grow carousel</code></td></tr>
+  <tr><td><strong>remotion-video</strong></td><td>Storyboard-to-composition mapping, frame calculations, template specs</td><td><code>/grow video reel</code></td></tr>
+</table></div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="skills-sales">
+<h2>Sales Page Pipeline (6 skills)</h2>
+<p>An 8-phase pipeline that builds world-class sales pages through directed design intelligence. Every decision traces to a reference — never from AI defaults.</p>
+
+<div class="docs-table-wrap"><table>
+  <tr><th>Phase</th><th>Skill</th><th>What it produces</th></tr>
+  <tr><td>1. Discovery</td><td><code>sales-page-discovery</code></td><td>Product knowledge base, guided interview, offer file</td></tr>
+  <tr><td>2. Research</td><td><code>sales-page-research</code></td><td>Competitor analysis, audience language, design references</td></tr>
+  <tr><td>3. Briefing</td><td>(orchestrator)</td><td>Strategic consolidation document</td></tr>
+  <tr><td>4. Visual Design</td><td><code>sales-page-visual-psychology</code></td><td>Design tokens, archetype, every decision traced to psychology</td></tr>
+  <tr><td>5. Narrative</td><td><code>sales-page-narrative</code></td><td>Copy framework (AIDA/PAS/Story Bridge), section flow, all copy</td></tr>
+  <tr><td>6. Fusion</td><td><code>sales-page-architect</code> agent</td><td>Visual + narrative merged into styled mockup</td></tr>
+  <tr><td>7. Build</td><td><code>sales-page-builder</code></td><td>Production HTML (&lt;300KB), scroll animations, responsive</td></tr>
+  <tr><td>8. QA</td><td><code>sales-page-qa</code> agent</td><td>Playwright E2E, Lighthouse, WCAG, visual regression</td></tr>
+</table></div>
+
+<div class="docs-callout">
+  <strong>Core principle: Directed AI, not Generative AI.</strong> Every visual decision traces to a reference in <code>design-intelligence/</code>. Every copy decision traces to a framework in the copywriting skill. Nothing is generated from "AI defaults."
+</div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="skills-showcase">
+<h2>Video Showcase Skills (9)</h2>
+<p>Advanced video templates routed from the <code>remotion-pro</code> orchestrator skill.</p>
+
+<div class="docs-table-wrap"><table>
+  <tr><th>Skill</th><th>Use case</th><th>Status</th></tr>
+  <tr><td><strong>remotion-pro</strong></td><td>Orchestrator — onboarding wizard, catalog display, routes to correct showcase</td><td>Active</td></tr>
+  <tr><td><strong>showcase-product-demo</strong></td><td>Full product walkthrough with browser frames, animated cursor, scroll reveals</td><td>Active</td></tr>
+  <tr><td><strong>showcase-tech-terminal</strong></td><td>Animated CLI output, typewriter commands, progress bars</td><td>Active</td></tr>
+  <tr><td><strong>showcase-walkthrough</strong></td><td>Step-by-step guided tour with hotspots, tooltips, zoom reveals</td><td>Active</td></tr>
+  <tr><td><strong>showcase-before-after</strong></td><td>Split-screen wipe reveal comparing two states</td><td>Wave 3</td></tr>
+  <tr><td><strong>showcase-data-story</strong></td><td>Animated charts, metric counters, data narratives</td><td>Wave 3</td></tr>
+  <tr><td><strong>showcase-feature-highlight</strong></td><td>Zoom-in spotlight on a single feature</td><td>Wave 3</td></tr>
+  <tr><td><strong>showcase-social-proof</strong></td><td>Animated testimonials, user counters, celebration effects</td><td>Wave 4</td></tr>
+  <tr><td><strong>showcase-course-trailer</strong></td><td>Module previews, learning journeys, completion badges</td><td>Wave 4</td></tr>
+</table></div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="grow-command">
+<h2>/grow Command Reference</h2>
+<p>Complete reference for all <code>/grow</code> subcommands.</p>
+
+<div class="docs-table-wrap"><table>
+  <tr><th>Command</th><th>Routes to</th><th>Description</th></tr>
+  <tr><td><code>/grow setup</code></td><td>CMO wizard</td><td>Configure brand voice and preferences</td></tr>
+  <tr><td><code>/grow strategy [topic]</code></td><td>Growth Strategist</td><td>Marketing strategies, OKRs, GTM plans</td></tr>
+  <tr><td><code>/grow create [type] [topic]</code></td><td>Content Creator</td><td>blog, social, newsletter, email, thread, article, carousel</td></tr>
+  <tr><td><code>/grow publish [platform]</code></td><td>Social Publisher</td><td>linkedin, twitter, reddit, threads, github, youtube, instagram</td></tr>
+  <tr><td><code>/grow analyze [subject]</code></td><td>Intelligence Analyst</td><td>Competitor/market/SWOT/pricing analysis</td></tr>
+  <tr><td><code>/grow research [topic]</code></td><td>Intelligence Analyst</td><td>Deep research and data gathering</td></tr>
+  <tr><td><code>/grow carousel [topic]</code></td><td>Carousel Designer</td><td>Instagram carousels (1080x1350)</td></tr>
+  <tr><td><code>/grow video [format] [topic]</code></td><td>Video Producer</td><td>reel, explainer, demo, tutorial, shorts</td></tr>
+  <tr><td><code>/grow meme [tema]</code></td><td>Meme Creator</td><td>Humor mining → script → output</td></tr>
+  <tr><td><code>/grow review</code></td><td>Flask dashboard</td><td>Approve/reject carousels at localhost:5050</td></tr>
+  <tr><td><code>/grow ship</code></td><td>IG publisher</td><td>Publish approved carousels to Instagram</td></tr>
+  <tr><td><code>/grow caption [folder]</code></td><td>Caption Writer</td><td>Generate IG caption for approved carousel</td></tr>
+  <tr><td><code>/grow export [html]</code></td><td>Playwright export</td><td>Export carousel HTML to PNG</td></tr>
+  <tr><td><code>/grow viral [URL]</code></td><td>Viral Analyzer</td><td>Extract viral patterns to voice/virais/</td></tr>
+  <tr><td><code>/grow report [period]</code></td><td>Intelligence Analyst</td><td>weekly, monthly, quarterly, yearly</td></tr>
+</table></div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="design-doctrine">
+<h2>Design Doctrine</h2>
+<p>The Design Intelligence system ensures every visual decision is <strong>directed by references</strong>, not generated from AI defaults.</p>
+
+<h3>5 axioms</h3>
+<ol>
+  <li><strong>Every decision traces to a reference or psychological principle.</strong> No "I thought it looked nice."</li>
+  <li><strong>Beauty serves conversion.</strong> Each pixel exists to move the user toward action.</li>
+  <li><strong>The reference bank grows with every project.</strong> RLHF visual — approved designs feed the profile.</li>
+  <li><strong>Restriction generates creativity.</strong> Archetypes with concrete tokens liberate, not limit.</li>
+  <li><strong>Mobile-first is not optional.</strong> 70%+ of sales page traffic comes from mobile.</li>
+</ol>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="archetypes">
+<h2>7 Visual Archetypes</h2>
+<p>Each archetype defines a complete visual universe: palette, typography, spacing, animation, hero pattern, and CTA style.</p>
+
+<div class="docs-table-wrap"><table>
+  <tr><th>Archetype</th><th>When to use</th><th>References</th><th>Vibe</th></tr>
+  <tr><td><strong>tech-elite</strong></td><td>SaaS, dev tools, dashboards</td><td>Linear, Stripe, Vercel, Raycast</td><td>Surgical precision, premium</td></tr>
+  <tr><td><strong>ai-native</strong></td><td>AI products, agents, ML tools</td><td>11x.ai, Anthropic, OpenAI</td><td>Near-future, tangible intelligence</td></tr>
+  <tr><td><strong>clean-authority</strong></td><td>Education, consulting, productivity</td><td>Cal.com, Notion, Basehub</td><td>Clarity that builds trust</td></tr>
+  <tr><td><strong>cinematic</strong></td><td>Premium launches, immersive experiences</td><td>Apple, Arc, Nothing, teenage.engineering</td><td>Every scroll is a scene</td></tr>
+  <tr><td><strong>conversion-machine</strong></td><td>Direct sales, infoproducts, launches</td><td>acquisition.com, ClickFunnels</td><td>Every element optimized for action</td></tr>
+  <tr><td><strong>builder-maker</strong></td><td>Open-source, dev tools, APIs</td><td>n8n, Supabase, Deno, GitHub</td><td>Transparent, technical, show-don't-tell</td></tr>
+  <tr><td><strong>luxury-minimal</strong></td><td>High-end services, premium consulting</td><td>Superhuman, Monaspace</td><td>Exclusivity through restraint</td></tr>
+</table></div>
+
+<div class="docs-callout">
+  <strong>Selection rule:</strong> When in doubt between two archetypes, choose by <strong>audience</strong> (who is buying), not by product type.
+</div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="references">
+<h2>Reference Sites (11)</h2>
+<p>Detailed analysis of elite landing pages. Each file documents visual identity, key techniques, patterns to extract, code snippets, and anti-patterns.</p>
+
+<div class="docs-cards">
+  <div class="docs-card"><div class="docs-card__title">Stripe</div><div class="docs-card__desc">Mesh gradient WebGL, CSS 3D, diagonal layout</div><div class="docs-card__tag">SaaS</div></div>
+  <div class="docs-card"><div class="docs-card__title">Linear</div><div class="docs-card__desc">Dark-mode, glassmorphism, 8px scale, LCH themes</div><div class="docs-card__tag">SaaS</div></div>
+  <div class="docs-card"><div class="docs-card__title">Apple iPhone</div><div class="docs-card__desc">Canvas frame sequence, pinned scroll, cinematic</div><div class="docs-card__tag">Consumer</div></div>
+  <div class="docs-card"><div class="docs-card__title">n8n</div><div class="docs-card__desc">Dark-mode, warm accents, node visual language</div><div class="docs-card__tag">Dev tool</div></div>
+  <div class="docs-card"><div class="docs-card__title">Cal.com</div><div class="docs-card__desc">Grayscale brand, open-source credibility, dual CTA</div><div class="docs-card__tag">Dev tool</div></div>
+  <div class="docs-card"><div class="docs-card__title">Figma</div><div class="docs-card__desc">Fluid 48-col grid, variable fonts, opacity tokens</div><div class="docs-card__tag">Design tool</div></div>
+  <div class="docs-card"><div class="docs-card__title">Arc Browser</div><div class="docs-card__desc">Emotional LP, video loops, poetic copy</div><div class="docs-card__tag">Productivity</div></div>
+  <div class="docs-card"><div class="docs-card__title">Superhuman</div><div class="docs-card__desc">Elitist positioning, speed-as-brand</div><div class="docs-card__tag">Productivity</div></div>
+  <div class="docs-card"><div class="docs-card__title">Notion</div><div class="docs-card__desc">Custom illustrations, friendly tone</div><div class="docs-card__tag">Productivity</div></div>
+  <div class="docs-card"><div class="docs-card__title">11x.ai</div><div class="docs-card__desc">AI-native positioning, agent narrative</div><div class="docs-card__tag">AI</div></div>
+  <div class="docs-card"><div class="docs-card__title">CodeWiki Google</div><div class="docs-card__desc">Material Design 3, radial gradients</div><div class="docs-card__tag">Developer</div></div>
+</div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="theory">
+<h2>Psychology Theory (5)</h2>
+<p>Research-backed principles that justify every design and copy decision.</p>
+
+<div class="docs-table-wrap"><table>
+  <tr><th>Theory file</th><th>Application</th></tr>
+  <tr><td><strong>ogilvy-principles.md</strong></td><td>Layout order, headline rules (6-12 words), long copy sells more, visual-first</td></tr>
+  <tr><td><strong>conversion-psychology.md</strong></td><td>Cialdini's 6 principles (reciprocity, scarcity, authority, consistency, liking, consensus), cognitive biases, anchoring</td></tr>
+  <tr><td><strong>color-psychology.md</strong></td><td>Color → emotion → purchase behavior. CTA contrast hypothesis. Dark mode vs light mode data</td></tr>
+  <tr><td><strong>typography-emotion.md</strong></td><td>Font → brand perception mapping. Serif +40% trust. Category → energy → best-for matrix</td></tr>
+  <tr><td><strong>visual-hierarchy.md</strong></td><td>F/Z-pattern eye tracking, Gestalt principles, focal point engineering</td></tr>
+</table></div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="mcp-servers">
+<h2>MCP Servers (4)</h2>
+<p>External operation servers built with Python/FastMCP. Only needed for publishing, analytics, vault access, and video rendering.</p>
+
+<div class="docs-table-wrap"><table>
+  <tr><th>Server</th><th>Tools</th><th>Description</th></tr>
+  <tr><td><strong>mcp-social-publish</strong></td><td><code>publish_post</code>, <code>preview_post</code>, <code>list_platforms</code>, <code>get_rate_limits</code></td><td>Publish to LinkedIn, Twitter/X, Reddit, Threads, GitHub</td></tr>
+  <tr><td><strong>mcp-social-discover</strong></td><td><code>get_analytics</code>, <code>discover_trends</code>, <code>search_mentions</code>, <code>get_competitor_activity</code></td><td>Analytics and trend discovery</td></tr>
+  <tr><td><strong>mcp-obsidian-vault</strong></td><td><code>create_note</code>, <code>read_note</code>, <code>update_note</code>, <code>search_notes</code>, <code>list_notes</code></td><td>Read/write integration with Obsidian vault</td></tr>
+  <tr><td><strong>mcp-remotion-render</strong></td><td><code>render_video</code>, <code>list_templates</code>, <code>preview_composition</code>, <code>render_custom</code></td><td>Video rendering via Remotion CLI</td></tr>
+</table></div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="hooks">
+<h2>Safety Hooks (4)</h2>
+
+<div class="docs-table-wrap"><table>
+  <tr><th>Hook</th><th>Type</th><th>What it does</th></tr>
+  <tr><td><strong>audit-logger</strong></td><td>PostToolUse</td><td>Logs all MCP calls to append-only JSONL. Redacts tokens, secrets, keys, passwords</td></tr>
+  <tr><td><strong>circuit-breaker</strong></td><td>PostToolUse</td><td>CLOSED → OPEN (3 failures) → HALF_OPEN (60s) → CLOSED (1 success). Per-server</td></tr>
+  <tr><td><strong>preview-before-publish</strong></td><td>PreToolUse</td><td>Shows formatted preview before any publish. Blocks if manual/semi. Saves draft on decline</td></tr>
+  <tr><td><strong>dry-run-guard</strong></td><td>PreToolUse</td><td>Intercepts ALL external MCP calls in dry-run mode. Returns synthetic responses</td></tr>
+</table></div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="remotion">
+<h2>Remotion Engine (11 compositions)</h2>
+
+<div class="docs-table-wrap"><table>
+  <tr><th>Composition</th><th>Aspect</th><th>Duration</th><th>Category</th></tr>
+  <tr><td><strong>ReelTips</strong></td><td>9:16</td><td>15-60s</td><td>Reel</td></tr>
+  <tr><td><strong>ReelBeforeAfter</strong></td><td>9:16</td><td>15-30s</td><td>Reel</td></tr>
+  <tr><td><strong>ReelNumbers</strong></td><td>9:16</td><td>15-30s</td><td>Reel</td></tr>
+  <tr><td><strong>TechTerminal</strong></td><td>9:16</td><td>35s</td><td>Reel</td></tr>
+  <tr><td><strong>TechTerminalPro</strong></td><td>9:16</td><td>25-45s</td><td>Reel</td></tr>
+  <tr><td><strong>ComponentShowcase</strong></td><td>9:16</td><td>35s</td><td>Reel</td></tr>
+  <tr><td><strong>CarouselAnimated</strong></td><td>4:5</td><td>15-60s</td><td>Carousel</td></tr>
+  <tr><td><strong>ExplainerSteps</strong></td><td>16:9</td><td>60-180s</td><td>Explainer</td></tr>
+  <tr><td><strong>ExplainerDemo</strong></td><td>16:9</td><td>30-120s</td><td>Explainer</td></tr>
+  <tr><td><strong>ProductDemo</strong></td><td>16:9</td><td>45s</td><td>Explainer</td></tr>
+  <tr><td><strong>AppWalkthrough</strong></td><td>16:9</td><td>50s</td><td>Explainer</td></tr>
+</table></div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="templates">
+<h2>Templates</h2>
+
+<h3>Carousel templates (6)</h3>
+<p>HTML templates at 1080x1350 (4:5 portrait, Instagram-optimal):</p>
+<p><strong>Bold</strong> · <strong>Clean Educator</strong> · <strong>Dark Premium</strong> · <strong>Gradient</strong> · <strong>Minimal</strong> · <strong>Vibrant Creator</strong></p>
+
+<h3>Landing page templates (3)</h3>
+<p><strong>Bold</strong> · <strong>Gradient</strong> · <strong>Minimal</strong></p>
+
+<h3>Report templates (3)</h3>
+<p><strong>A/B Test</strong> · <strong>CRO Report</strong> · <strong>Tracking Plan</strong></p>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="voice-system">
+<h2>Voice System</h2>
+<p>The voice system ensures all content matches your brand. Created during <code>/grow setup</code>.</p>
+
+<h3>Components</h3>
+<div class="docs-table-wrap"><table>
+  <tr><th>File</th><th>Purpose</th><th>Created by</th></tr>
+  <tr><td><code>voice/GOLDEN-DOC.md</code></td><td>Master brand voice document</td><td>User during setup</td></tr>
+  <tr><td><code>voice/offers/*.md</code></td><td>Product/offer knowledge base (per product)</td><td>Sales page discovery skill</td></tr>
+  <tr><td><code>voice/preferences/PROFILE.md</code></td><td>Personal RLHF — what you approve/reject</td><td>Accumulated during use</td></tr>
+  <tr><td><code>voice/virais/INDEX.md</code></td><td>Viral content patterns extracted</td><td><code>/grow viral</code> command</td></tr>
+</table></div>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="config">
+<h2>Configuration</h2>
+<p>All config is in <code>brand-voice.yaml</code> (gitignored). See <a href="#brand-voice">Brand Voice Setup</a> for details.</p>
+</section>
+
+<!-- ────────────────────────────────────────── -->
+<section id="env-vars">
+<h2>Environment Variables</h2>
+<p>Copy <code>.env.example</code> to <code>.env</code>. Only needed for MCP servers and publishing.</p>
+
+<div class="docs-table-wrap"><table>
+  <tr><th>Variable</th><th>Required for</th></tr>
+  <tr><td><code>GROWTHOS_TWITTER_API_KEY</code></td><td>Twitter/X publishing</td></tr>
+  <tr><td><code>GROWTHOS_LINKEDIN_TOKEN</code></td><td>LinkedIn publishing</td></tr>
+  <tr><td><code>GROWTHOS_REDDIT_CLIENT_ID</code></td><td>Reddit publishing</td></tr>
+  <tr><td><code>GROWTHOS_GITHUB_TOKEN</code></td><td>GitHub publishing</td></tr>
+  <tr><td><code>GROWTHOS_THREADS_TOKEN</code></td><td>Threads publishing</td></tr>
+  <tr><td><code>GROWTHOS_VAULT_PATH</code></td><td>Obsidian vault path (default: ./vault)</td></tr>
+  <tr><td><code>GROWTHOS_AUTONOMY_LEVEL</code></td><td>supervised | assisted | delegated | autonomous</td></tr>
+  <tr><td><code>GROWTHOS_DRY_RUN</code></td><td>true | false (default: true)</td></tr>
+</table></div>
+</section>
+
+<div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--ink-4); display: flex; justify-content: space-between;">
+  <span>growthOS documentation</span>
+  <span><span style="color: var(--vi);">◆</span> rendered from code</span>
+</div>
+
+</div><!-- .docs-main -->
+</div><!-- .docs -->
+
+<!-- Sidebar active link tracking -->
+<button class="docs-mobile-toggle" onclick="document.querySelector('.docs-sidebar').classList.toggle('is-open')">☰</button>
+<script>
+const navLinks = document.querySelectorAll('.docs-nav-link');
+const sections = document.querySelectorAll('.docs-main section[id]');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('is-active'));
+      const link = document.querySelector(`.docs-nav-link[href="#${e.target.id}"]`);
+      if (link) link.classList.add('is-active');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '-80px 0px -70% 0px' });
+sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>

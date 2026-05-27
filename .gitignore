@@ -3,3 +3,4 @@
 .playwright-mcp/
 *.png
 node_modules/
+.vercel
