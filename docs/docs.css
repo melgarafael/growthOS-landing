@@ -4,6 +4,20 @@
    Layout: sidebar nav + main content
    ═══════════════════════════════════════════ */
 
+/* ── Base (docs needs its own since it doesn't load base.css) ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::selection { background: rgba(167, 139, 250, 0.2); }
+
 /* ── Layout ── */
 .docs {
   display: grid;
